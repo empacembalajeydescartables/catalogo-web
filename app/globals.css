@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  border-color: theme("colors.line");
+}
+
+/* Etiqueta tipo "cinta de embalaje" que separa cada categoría del catálogo:
+   una franja diagonal cortada en los extremos, como una etiqueta pegada
+   a una caja, con línea de "corte" punteada debajo. Es el elemento
+   distintivo de la página. */
+.tape-label {
+  position: relative;
+  clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+}
+
+.cut-line {
+  background-image: linear-gradient(
+    to right,
+    theme("colors.inkmuted") 0,
+    theme("colors.inkmuted") 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  background-size: 12px 1.5px;
+  background-repeat: repeat-x;
+  height: 1.5px;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid theme("colors.teal.DEFAULT");
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
